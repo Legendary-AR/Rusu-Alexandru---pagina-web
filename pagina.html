@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Codul Digital – Reguli de Securitate</title>
+    <style>
+        body { font-family: Arial; background: #f0f4f8; padding: 20px; }
+        .box { background: white; padding: 15px; margin: 10px 0; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        button { margin-top: 10px; padding: 8px 15px; border: none; border-radius: 8px; cursor: pointer; }
+        input { padding: 5px; }
+    </style>
+</head>
+<body>
+
+<h1>Reguli de Securitate Digitală</h1>
+<div class="box">1. Folosește parole lungi și diferite.</div>
+<div class="box">2. Activează autentificarea în doi pași.</div>
+<div class="box">3. Nu distribui date personale.</div>
+<div class="box">4. Verifică sursa mesajelor.</div>
+<div class="box">5. Actualizează aplicațiile la zi.</div>
+
+<h3>Verifică puterea parolei:</h3>
+<input id="pass" type="text" placeholder="Introdu parola">
+<button onclick="check()">Verifică</button>
+<p id="result"></p>
+
+<script>
+function check() {
+    let p = document.getElementById("pass").value;
+    let score = 0;
+    if (p.length >= 8) score++;
+    if (/[0-9]/.test(p)) score++;
+    if (/[A-Z]/.test(p)) score++;
+    if (/[\W_]/.test(p)) score++;
+    document.getElementById("result").textContent =
+        score >= 3 ? "Parola este sigură" : "Parola este slabă";
+}
+</script>
+
+</body>
+</html>
